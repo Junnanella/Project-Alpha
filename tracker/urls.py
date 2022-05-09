@@ -22,7 +22,7 @@ urlpatterns = [
     path("projects/", include("projects.urls")),
     path(
         "",
-        RedirectView.as_view(url=reverse_lazy("projects_list")),
+        RedirectView.as_view(url=reverse_lazy("list_projects")),
         name="home",
     ),
     path("accounts/", include("accounts.urls")),
