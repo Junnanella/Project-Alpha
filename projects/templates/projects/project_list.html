@@ -2,10 +2,12 @@
 <main>
   <div>
     <h1>My Projects</h1>
-    <a href="{% url "project:create_project" %}">Create a new project</a>
+    <a href="{% url "create_project" %}">Create a new project</a>
+    <br>
     {% if projects|length == 0 %}
     <p>You are not assigned to any projects</p>
     {% else %}
+    <br>
     <table>
       <thead>
         <th>Name</th>
@@ -22,6 +24,10 @@
       </tbody>
     </table>
     {% endif %}
+  </div>
+  <br>
+  <div>
+    <a href="{% url "show_my_tasks" %}">Show my Tasks</a>
   </div>
 </main>
 {% endblock main_content %}

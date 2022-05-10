@@ -35,7 +35,7 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
         project = form.save(commit=False)
         project.save()
         form.save_m2m()
-        return redirect("project:show_project", pk=project.id)
+        return redirect("show_project", pk=project.id)
 
     
 
