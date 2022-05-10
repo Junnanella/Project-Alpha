@@ -30,7 +30,7 @@ class TaskListView(LoginRequiredMixin,ListView):
 class TaskUpdateView(LoginRequiredMixin,UpdateView):
     model = Task
     template_name = "tasks/tasks_list.html"
-    fields = ["is_complete"]
+    fields = ["is_completed"]
 
     success_url = reverse_lazy("show_my_tasks")
         
