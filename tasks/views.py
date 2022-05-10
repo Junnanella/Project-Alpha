@@ -2,7 +2,7 @@ from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from .models import Task
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 
 # Create your views here.
 
@@ -15,5 +15,14 @@ class TaskCreateView(LoginRequiredMixin,CreateView):
     def form_valid(self, form):
         task = form.save(commit=False)
         task.save()
-        return redirect("project:show_project", pk=task.project.pk)
+        return redirect("show_project", pk=task.project.pk)
 
+
+class TaskListView(LoginRequiredMixin,ListView):
+    model = Task
+    template_name = "tasks/tasks_list.html"
+    context_object_name = "tasks"
+
+    def get_queryset(self):
+        return Task.objects.filter(assignee=self.request.user)
+    
