@@ -33,6 +33,10 @@ td.task-data{
     padding-right: 3rem;
 }
 
+nav {
+    padding-top: 50px;
+}
+
 /* links */
 .nav-links {
     display: grid;
