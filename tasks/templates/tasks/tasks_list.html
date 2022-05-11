@@ -17,7 +17,7 @@
           <td>{{ task.start_date }}</td>
           <td>{{ task.due_date }}</td>
           <td>
-            {% if task.is_complete %} 
+            {% if task.is_completed %} 
             Done 
             {% else %}
             <form method="post" action="{% url "complete_task" task.id%}">
