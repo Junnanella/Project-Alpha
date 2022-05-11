@@ -6,6 +6,13 @@ body {
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 3fr;
+    grid-auto-rows: 100%;
+    height: 100vh;
+    grid-column-gap: 2em;
+}
+
+header {
+    background-color: #F0DAB1;
 }
 
 h1 {
@@ -23,7 +30,7 @@ th {
 }
 
 td.task-data{
-    padding-right: 2rem;
+    padding-right: 3rem;
 }
 
 /* links */
