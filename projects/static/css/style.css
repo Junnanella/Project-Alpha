@@ -12,6 +12,19 @@ h1 {
     color: #495371;
 }
 
+/* table */
+th {
+    text-align: left;
+    padding-right: 2rem;
+}
+
+th {
+    border-bottom: solid;
+}
+
+td.task-data{
+    padding-right: 2rem;
+}
 
 /* links */
 .nav-links {
@@ -39,10 +52,12 @@ a.nav-link:hover {
 }
 
 a {
+    color: #424874;
     text-decoration: none;
 }
 
 a:hover {
+    color: #68A7AD;
     text-transform: uppercase;
 }
 

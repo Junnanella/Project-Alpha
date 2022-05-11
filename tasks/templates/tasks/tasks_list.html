@@ -3,20 +3,20 @@
   <div>
     <h1>My Tasks</h1>
     {% if tasks|length > 0 %}
-    <table>
+    <table class="task-table">
       <thead>
-        <th>Name</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-        <th>Is Completed</th>
+        <th class="task-head">Name</th>
+        <th class="task-head">Start Date</th>
+        <th class="task-head">End Date</th>
+        <th class="task-head">Is Completed</th>
       </thead>
       <tbody>
         {% for task in tasks %}
         <tr>
-          <td>{{ task.name }}</td>
-          <td>{{ task.start_date }}</td>
-          <td>{{ task.due_date }}</td>
-          <td>
+          <td class="task-data">{{ task.name }}</td>
+          <td class="task-data">{{ task.start_date }}</td>
+          <td class="task-data">{{ task.due_date }}</td>
+          <td class="task-data">
             {% if task.is_completed %} 
             Done 
             {% else %}
