@@ -1,13 +1,13 @@
 {% extends "base.html" %} {% block main_content %}
-<main>
-  <div>
-    <h2>Login</h2>
-    <form method="post">
-      {% csrf_token %}
-      <input type="text" name="username" autofocus placeholder="username" />
-      <input type="password" name="password" placeholder="password" />
-      <button type="submit">Login</button>
-    </form>
-  </div>
-</main>
+    <main>
+        <div>
+            <h2>Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="username" autofocus placeholder="username" />
+                <input type="password" name="password" placeholder="password" />
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </main>
 {% endblock main_content %}
