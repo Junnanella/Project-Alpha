@@ -3,7 +3,15 @@
   <div>
     <h1>Singup</h1>
     <form method="post">
-      {% csrf_token %} {{ form.as_p }}
+      {% csrf_token %}
+      <input
+        type="text"
+        name="username"
+        autofocus
+        placeholder="enter username"
+      />
+      <input type="password" name="password1" placeholder="password" />
+      <input type="password" name="password2" placeholder="confirm password" />
       <button type="submit">Sign Up</button>
     </form>
   </div>
