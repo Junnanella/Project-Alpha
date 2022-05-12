@@ -1,49 +1,41 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects</title>
-    <link rel="stylesheet" href="{% static "css/style.css"%}">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <div class="nav">
-          <nav>
-            <ul class="nav-links">
-              {% if user.is_staff %}
-              <li>
-                <a class="nav-link" href="{% url "admin:index"%}">Admin</a>
-              </li>
-              {% endif %}
-              {% if user.is_authenticated %}
-              <li>
-                <a class="nav-link" href="{% url "show_my_tasks" %}">My Tasks</a>
-              </li>
-              <li>
-                <a class="nav-link" href="{% url "list_projects"%}">My Projects</a>
-              </li>
-              <li>
-                <a class="nav-link" href="{% url "logout" %}">Logout</a>
-              </li>
-              {% else %}
-              <li>
-                <a class="nav-link" href="{% url "login" %}">Login</a>
-              </li>
-              <li>
-                <a class="nav-link" href="{% url "signup" %}">Signup</a>
-              </li>
-              {% endif %}
-            </ul>
-          </nav>
-        </div>
-      </header>
-      <div class="main_content">
-        {% block main_content %} {% endblock main_content %}
-      </div>
-    </div>
+    <header>
+      <nav>
+        <ul>
+          {% if user.is_staff %}
+          <li>
+            <a href="{% url "admin:index"%}">Admin</a>
+          </li>
+          {% endif %}
+          {% if user.is_authenticated %}
+          <li>
+            <a href="{% url "show_my_tasks" %}">My Tasks</a>
+          </li>
+          <li>
+            <a href="{% url "list_projects"%}">My Projects</a>
+          </li>
+          <li>
+            <a href="{% url "logout" %}">Logout</a>
+          </li>
+          {% else %}
+          <li>
+            <a href="{% url "login" %}"></a>
+          </li>
+          <li>
+            <a href="{% url "signup" %}"></a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+    {% block main_content %} {% endblock main_content %}
   </body>
 </html>
