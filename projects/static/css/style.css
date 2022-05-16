@@ -66,4 +66,16 @@ a:hover {
     text-transform: uppercase;
 }
 
+/* home page */
+div.home-wrapper {
+    display: grid;
+    grid-template-columns: repeat(1fr, 2);
+    justify-items: center;
+    margin-top: 5em;
+}
+
+div.home-title{
+    grid-column: 1/3;
+    text-align: center;
+}
 

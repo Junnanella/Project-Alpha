@@ -1,5 +1,23 @@
 {% extends "base.html" %} {% block main_content %}
 <main>
-  <h1>Home</h1>
+  <div class="home-wrapper">
+    <div class="home-title">
+      <h2>{{ current_day }}</h2>
+      <h1>{{ current_date }}</h1>
+      {% if current_hour < 12 %}
+      <h3>Good Morning User</h3>
+      {% elif current_hour > 12 and current_hour < 18 %}
+      <h3>Good Afternoon User</h3>
+      {% else %}
+      <h3>Good Evening User</h3>
+      {% endif %}
+    </div>
+    <div class="home-box">
+      <h1>Tasks Due Today</h1>
+    </div>
+    <div class="home-box">
+      <h1>Projects</h1>
+    </div>
+  </div>
 </main>
 {% endblock main_content %}

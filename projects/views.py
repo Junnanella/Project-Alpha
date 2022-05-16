@@ -3,6 +3,8 @@ from .models import Project
 from tasks.models import Task
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
+from datetime import date, datetime
+import calendar
 
 # Create your views here.
 
@@ -45,7 +47,17 @@ def index(request):
     # all of users tasks
     user_tasks = Task.objects.filter(assignee=request.user)
 
+    current_date = date.today()
+    current_day = calendar.day_name[current_date.weekday()]
+    current_hour = datetime.now().hour
+
     # context data to pass to render
-    context = {"user_projects": user_projects, "user_tasks": user_tasks}
+    context = {
+        "user_projects": user_projects,
+        "user_tasks": user_tasks,
+        "current_day": current_day,
+        "current_date": current_date,
+        "current_hour": current_hour
+    }
 
     return render(request, "projects/index.html", context=context)
