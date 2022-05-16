@@ -1,7 +1,8 @@
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Project
+from tasks.models import Task
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 
 # Create your views here.
 
@@ -34,3 +35,17 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
         project.save()
         form.save_m2m()
         return redirect("show_project", pk=project.id)
+
+
+# view for home page
+def index(request):
+    # get data from models to pass into context data
+    # all projects logged in user is part of
+    user_projects = Project.objects.filter(members=request.user)
+    # all of users tasks
+    user_tasks = Task.objects.filter(assignee=request.user)
+
+    # context data to pass to render
+    context = {"user_projects": user_projects, "user_tasks": user_tasks}
+
+    return render(request, "projects/index.html", context=context)

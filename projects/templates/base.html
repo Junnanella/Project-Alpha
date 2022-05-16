@@ -12,9 +12,14 @@
         <header>
             <nav>
                 <ul>
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a class="nav-link" href="{% url "index" %}">Home</a>
+                        </li>
+                    {% endif %}
                     {% if user.is_staff %}
                         <li>
-                            <a class="nav-link" href="{% url "admin:index"%}">Admin</a>
+                            <a class="nav-link" href="{% url "admin:index" %}">Admin</a>
                         </li>
                     {% endif %}
                     {% if user.is_authenticated %}
