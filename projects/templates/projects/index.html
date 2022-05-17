@@ -5,7 +5,7 @@
       <h2>{{ current_day }}</h2>
       <h1>{{ current_date }}</h1>
       {% if current_hour < 12 %}
-      <h3>Good Morning User</h3>
+      <h3>Good Morning {{ request.user }}</h3>
       {% elif current_hour > 12 and current_hour < 18 %}
       <h3>Good Afternoon User</h3>
       {% else %}
@@ -14,9 +14,15 @@
     </div>
     <div class="home-box">
       <h1>Tasks Due Today</h1>
+      {% for task in user_tasks %} {% if task.due_date == current_date %}
+      <p>{{ task.name }}</p>
+      {% endif %} {% endfor %}
     </div>
     <div class="home-box">
       <h1>Projects</h1>
+      {% for project in user_projects %}
+      <p>{{ project.name }}</p>
+      {% endfor %}
     </div>
   </div>
 </main>
