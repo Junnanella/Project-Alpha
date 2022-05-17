@@ -6,7 +6,7 @@
       <h1>{{ current_date }}</h1>
       {% if current_hour < 12 %}
       <h3>Good Morning {{ request.user }}</h3>
-      {% elif current_hour > 12 and current_hour < 18 %}
+      {% elif current_hour >= 12 and current_hour < 18 %}
       <h3>Good Afternoon User</h3>
       {% else %}
       <h3>Good Evening User</h3>
