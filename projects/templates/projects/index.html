@@ -15,13 +15,17 @@
     <div class="home-box">
       <h1>Tasks Due Today</h1>
       {% for task in user_tasks %} {% if task.due_date == current_date %}
-      <p>{{ task.name }}</p>
+      <ul>
+          <li>{{ task.name }}</li>
+      </ul>
       {% endif %} {% endfor %}
     </div>
     <div class="home-box">
       <h1>Projects</h1>
       {% for project in user_projects %}
-      <p>{{ project.name }}</p>
+        <ul>
+            <li><a href="{% url "show_project" project.pk %}"> {{ project.name }}</a></li>
+        </ul>
       {% endfor %}
     </div>
   </div>
