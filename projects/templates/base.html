@@ -7,39 +7,45 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Projects</title>
         <link rel="stylesheet" href="{% static "css/style.css" %}">
+        <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
     </head>
     <body class="wrapper">
         <header>
             <nav>
                 <ul>
-                    {% if user.is_authenticated %}
+                   <div>
+                        {% if user.is_authenticated %}
+                        <div class="admin-link">
+                            {% if user.is_authenticated and user.is_staff %}
+                            <li class="nav nav-admin">
+                                <a class="nav-link" href="{% url "admin:index"%}" target="_blank">Admin <i class="fa-solid fa-square-up-right"></i></a>
+                            </li>
+                            {% endif %}
+                       </div>
                         <li class="nav">
                             <a class="nav-link" href="{% url "index" %}">Home</a>
                         </li>
-                    {% endif %}
-                    {% if user.is_staff %}
-                        <li class="nav">
-                            <a class="nav-link" href="{% url "admin:index" %}">Admin</a>
-                        </li>
-                    {% endif %}
-                    {% if user.is_authenticated %}
                         <li class="nav">
                             <a class="nav-link" href="{% url "show_my_tasks" %}">My Tasks</a>
                         </li>
                         <li class="nav">
                             <a class="nav-link" href="{% url "list_projects"%}">My Projects</a>
                         </li>
-                        <li class="nav">
-                            <a class="nav-link" href="{% url "logout" %}">Logout</a>
-                        </li>
-                    {% else %}
+                        <div class="logout-link">
+                            <li class="nav">
+                                <a class="nav-link" href="{% url "logout" %}">Logout</a>
+                            </li>
+                        </div>
+                        {% else %}
                         <li class="nav">
                             <a class="nav-link" href="{% url "login" %}">Login</a>
                         </li>
                         <li class="nav">
                             <a class="nav-link" href="{% url "signup" %}">Signup</a>
                         </li>
-                    {% endif %}
+                        {% endif %}
+                   </div>
+                
                 </ul>
             </nav>
         </header>

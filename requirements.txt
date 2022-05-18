@@ -19,3 +19,5 @@ six==1.16.0
 sqlparse==0.4.2
 tomli==2.0.1
 webencodings==0.5.1
+fontawesomefree==6.1.1
+
