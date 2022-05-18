@@ -1,8 +1,11 @@
 {% extends "base.html" %} {% block main_content %}
     <main>
-        <div>
-            <h1>My Tasks</h1>
-            {% if tasks|length > 0 %}
+        <div class="list-page">
+            <div>
+                <h1 class="list-page-header">My Tasks</h1>
+            </div>
+            <div>
+                {% if tasks|length > 0 %}
                 <table class="task-table">
                     <thead>
                         <th class="task-head">Name</th>
@@ -30,9 +33,10 @@
                         {% endfor %}
                     </tbody>
                 </table>
-            {% else %}
+                {% else %}
                 <p>You have no tasks</p>
-            {% endif %}
+                {% endif %}
+            </div>
         </div>
     </main>
 

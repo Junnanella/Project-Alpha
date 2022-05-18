@@ -23,13 +23,22 @@ h1 {
 }
 
 /* table */
-th {
-    text-align: left;
-    padding-right: 2rem;
+div.list-page{
+    margin-top: 6em;
+}
+
+h1.list-page-header{
+    text-align: center;
 }
 
 th {
+    text-align: left;
+    padding-right: 2rem;
     border-bottom: solid;
+}
+
+td {
+    padding-top: 1em;
 }
 
 td.task-data{
@@ -92,11 +101,21 @@ a:hover {
 }
 
 div.admin-link{
-    margin-bottom: 2em;
+    margin-bottom: 4em;
 }
 
 div.logout-link{
     margin-top: 5em;
+}
+
+div.list-page-link{
+    display: inline-block;
+    margin-top: 2em;
+    padding-left: 2em;
+}
+
+a.project-page-link{
+    padding-right: 2em;
 }
 
 /* home page */
