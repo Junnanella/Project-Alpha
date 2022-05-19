@@ -89,8 +89,21 @@ form.create_new {
     justify-content: stretch;
 }
 
+input.login {
+    height: 3em;
+    font-size: 15px;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+button.login {
+    height: 3em;
+    font-size: 15px;
+}
+
 input, select, textarea {
     width: 100%;
+    height: 3em;
 }
 
 /* links */

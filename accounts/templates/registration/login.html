@@ -2,11 +2,22 @@
 <main>
   <div>
     <h2>Login</h2>
-    <form class="create_new" method="post">
+    <form class="create_new login" method="post">
       {% csrf_token %}
-      <input type="text" name="username" autofocus placeholder="username" />
-      <input type="password" name="password" placeholder="password" />
-      <button type="submit">Login</button>
+      <input
+        class="login"
+        type="text"
+        name="username"
+        autofocus
+        placeholder="username"
+      />
+      <input
+        class="login"
+        type="password"
+        name="password"
+        placeholder="password"
+      />
+      <button class="login" type="submit">Login</button>
     </form>
   </div>
 </main>

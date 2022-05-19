@@ -7,9 +7,9 @@
       {% if current_hour < 12 %}
       <h3>Good Morning {{ request.user }}</h3>
       {% elif current_hour >= 12 and current_hour < 18 %}
-      <h3>Good Afternoon User</h3>
+      <h3>Good Afternoon {{ request.user }}</h3>
       {% else %}
-      <h3>Good Evening User</h3>
+      <h3>Good Evening {{ request.user }}</h3>
       {% endif %}
     </div>
     <div class="home-box">
