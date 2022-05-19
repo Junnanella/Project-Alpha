@@ -9,6 +9,7 @@
                 <table class="task-table">
                     <thead>
                         <th class="task-head">Name</th>
+                        <th class="task-head">Project</th>
                         <th class="task-head">Start Date</th>
                         <th class="task-head">Due Date</th>
                         <th class="task-head">Completed?</th>
@@ -18,6 +19,7 @@
                             <tr>
                                 {% if task.is_completed == False %}
                                 <td class="task-data">{{ task.name }}</td>
+                                <td class="task-data"><a href="{% url "show_project" task.project.pk %}"> {{ task.project.name }}</a></td>
                                 <td class="task-data">{{ task.start_date }}</td>
                                 <td class="task-data">{{ task.due_date }}</td>
                                 <td class="task-data">
