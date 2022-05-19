@@ -49,7 +49,7 @@
                         {% if task.is_completed %}
                         <tr>
                             <td class="task-data">{{ task.name }}</td>
-                            <td class="task-data">{{ task.project.name }}</td>
+                            <td class="task-data"><a href="{% url "show_project" task.project.pk %}"> {{ task.project.name }}</a></td>
                         </tr>
                         {% endif %}
                         {% endfor %}
