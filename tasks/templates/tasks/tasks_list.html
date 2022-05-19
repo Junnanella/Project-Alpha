@@ -11,18 +11,17 @@
                         <th class="task-head">Name</th>
                         <th class="task-head">Start Date</th>
                         <th class="task-head">Due Date</th>
-                        <th class="task-head">Is Completed</th>
+                        <th class="task-head"></th>
                     </thead>
                     <tbody>
                         {% for task in tasks %}
                             <tr>
+                                {% if task.is_completed %}
+                                {% else %}
                                 <td class="task-data">{{ task.name }}</td>
                                 <td class="task-data">{{ task.start_date }}</td>
                                 <td class="task-data">{{ task.due_date }}</td>
                                 <td class="task-data">
-                                    {% if task.is_completed %}
-                                        Done
-                                    {% else %}
                                         <form class="completed_task" method="post" action="{% url "complete_task" task.id%}">
                                             {% csrf_token %}
                                             <input type="hidden" name="is_completed" value="True">
@@ -36,6 +35,25 @@
                 {% else %}
                 <p>You have no tasks</p>
                 {% endif %}
+            </div>
+            <div class="completed-tasks">
+                <h1 class="list-page-header">Completed Tasks</h1>
+                <table class="task-table">
+                    <thead>
+                        <th class="task-head">Task Name</th>
+                        <th class="task-head">Project Name</th>
+                    </thead>
+                    <tbody>
+                        {% for task in tasks %}
+                        {% if task.is_completed %}
+                        <tr>
+                            <td class="task-data">{{ task.name }}</td>
+                            <td class="task-data">{{ task.project.name }}</td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>

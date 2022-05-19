@@ -15,8 +15,18 @@
     <div class="home-box">
       <h1>Tasks Due Today</h1>
       {% for task in user_tasks %} {% if task.due_date == current_date %}
-      <ul>
-          <li>{{ task.name }}</li>
+      <ul class="home-task">
+        {% if task.is_completed %}
+          {% else %}
+          <li class="home-task">
+            <form class="completed_task" method="post" action="{% url "complete_task" task.id%}">
+              {% csrf_token %}
+              <input type="hidden" name="is_completed" value="True">
+              <button class="completed-button"><i class="fa-solid fa-square-check icon"></i></button>
+            </form>
+          </li>
+          <li class="home-task">{{ task.name }}</li>
+          {% endif %}
       </ul>
       {% endif %} {% endfor %}
     </div>
@@ -26,6 +36,26 @@
         <ul>
             <li><a href="{% url "show_project" project.pk %}"> {{ project.name }}</a></li>
         </ul>
+      {% endfor %}
+    </div>
+    <div class="home-title home-overdue-tasks">
+      <h1>Overdue Tasks</h1>
+      {% for task in user_tasks %} 
+      {% if task.is_completed%}
+      {% else %}
+      {% if task.due_date < current_date%}
+      <ul class="home-task">
+          <li class="home-task">
+            <form class="completed_task" method="post" action="{% url "complete_task" task.id%}">
+              {% csrf_token %}
+              <input type="hidden" name="is_completed" value="True">
+              <button class="completed-button"><i class="fa-solid fa-square-check icon"></i></button>
+            </form>
+          </li>
+          <li>{{ task.name }}</li>
+      </ul>
+      {% endif %} 
+      {% endif %}
       {% endfor %}
     </div>
   </div>

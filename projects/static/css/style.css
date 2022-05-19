@@ -22,6 +22,20 @@ h1 {
     color: #495371;
 }
 
+button.completed-button {
+    border: none;
+    color: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+i.icon {
+    font-size: 20px;
+    color: green;
+}
+
 /* table */
 div.list-page{
     margin-top: 6em;
@@ -66,6 +80,13 @@ form.create_new {
     margin: auto;
     max-width: 600px;
     padding: 2em;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+}
+
+input, select, textarea {
+    width: 100%;
 }
 
 /* links */
@@ -143,6 +164,20 @@ div.home-box{
     background-color: white
 }
 
+ul.home-task{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1em;
+}
+
+div.home-overdue-tasks {
+    box-shadow: -5px -20px #C9CCD5;
+    margin: auto 10em auto;
+    padding-left: 20px;
+    border-radius: 25px; 
+    background-color: white
+}
+
 /* pages */
 div.project-task-list {
     padding-left: 2em;
@@ -150,5 +185,9 @@ div.project-task-list {
 
 p {
     margin-top: 2em;
+}
+
+div.completed-tasks {
+    margin-top: 5em;
 }
 
