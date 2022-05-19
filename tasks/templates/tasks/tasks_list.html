@@ -11,7 +11,7 @@
                         <th class="task-head">Name</th>
                         <th class="task-head">Start Date</th>
                         <th class="task-head">Due Date</th>
-                        <th class="task-head"></th>
+                        <th class="task-head">Completed?</th>
                     </thead>
                     <tbody>
                         {% for task in tasks %}
@@ -25,7 +25,7 @@
                                         <form class="completed_task" method="post" action="{% url "complete_task" task.id%}">
                                             {% csrf_token %}
                                             <input type="hidden" name="is_completed" value="True">
-                                            <button>Complete</button>
+                                            <button class="completed-button"><i class="fa-solid fa-square-check icon"></i></button>
                                         </form>
                                     {% endif %}</td>
                             </tr>
@@ -38,12 +38,12 @@
             </div>
             <div class="completed-tasks">
                 <h1 class="list-page-header">Completed Tasks</h1>
-                <table class="task-table">
-                    <thead>
-                        <th class="task-head">Task Name</th>
-                        <th class="task-head">Project Name</th>
+                <table class="task-table completed-tasks">
+                    <thead class="completed-tasks">
+                        <th class="task-head completed-tasks">Task Name</th>
+                        <th class="task-head completed-tasks project-name">Project Name</th>
                     </thead>
-                    <tbody>
+                    <tbody class="completed-tasks">
                         {% for task in tasks %}
                         {% if task.is_completed %}
                         <tr>
