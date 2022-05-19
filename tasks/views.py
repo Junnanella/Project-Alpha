@@ -24,7 +24,9 @@ class TaskListView(LoginRequiredMixin, ListView):
     context_object_name = "tasks"
 
     def get_queryset(self):
-        return Task.objects.filter(assignee=self.request.user)
+        user_tasks = Task.objects.filter(assignee=self.request.user)
+        ordered_tasks = user_tasks.order_by("due_date")
+        return ordered_tasks
 
 
 class TaskUpdateView(LoginRequiredMixin, UpdateView):

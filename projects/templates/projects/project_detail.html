@@ -14,19 +14,16 @@
                         <th>Assignee</th>
                         <th>Start date</th>
                         <th>Due date</th>
-                        <th>Is completed</th>
                     </thead>
                     <tbody>
                         {% for task in project.tasks.all %}
                             <tr>
+                                {% if task.is_completed %}
+                                {% else %}
                                 <td>{{ task.name }}</td>
                                 <td>{{ task.assignee }}</td>
                                 <td>{{ task.start_date }}</td>
                                 <td>{{ task.due_date }}</td>
-                                {% if task.is_completed %}
-                                    <td>yes</td>
-                                {% else %}
-                                    <td>no</td>
                                 {% endif %}
                             </tr>
                         {% endfor %} 
@@ -36,9 +33,28 @@
             <p>This project has no tasks</p>
             {% endif %}
             </div>
-        </div>
-        <div class="list-page-link">
-            <a  class="project-page-link" href="{% url "create_task" %}">Create a new task</a>
+            <div class="list-page-link">
+                <a  class="project-page-link" href="{% url "create_task" %}">Create a new task</a>
+            </div>
+            <div class="completed-tasks">
+                <h1 class="list-page-header">Completed Tasks</h1>
+                <table class="task-table completed-tasks">
+                    <thead class="completed-tasks">
+                        <th class="task-head completed-tasks">Task Name</th>
+                        <th class="task-head completed-tasks">Assignee</th>
+                    </thead>
+                    <tbody class="completed-tasks">
+                        {% for task in project.tasks.all %}
+                        {% if task.is_completed %}
+                        <tr>
+                            <td class="task-data">{{ task.name }}</td>
+                            <td>{{ task.assignee }}</td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </main>
 {% endblock main_content %}
