@@ -15,8 +15,7 @@
     <div class="home-box">
       <h1>Tasks Due Today</h1>
       {% for task in user_tasks %} {% if task.due_date == current_date %}
-      {% if task.is_completed %}
-        {% else %}
+      {% if task.is_completed == False%}
         <ul class="home-task">
           <li class="home-task">
             <form class="completed_task" method="post" action="{% url "complete_task" task.id%}">
@@ -46,8 +45,7 @@
         <li><strong><u>Due Date</u></strong></li>
       </ul>
       {% for task in user_tasks %} 
-      {% if task.is_completed%}
-      {% else %}
+      {% if task.is_completed == False %}
       {% if task.due_date < current_date%}
       <ul class="home-overdue-task">
           <li class="home-overdue-task">

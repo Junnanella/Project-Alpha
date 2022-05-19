@@ -16,8 +16,7 @@
                     <tbody>
                         {% for task in tasks %}
                             <tr>
-                                {% if task.is_completed %}
-                                {% else %}
+                                {% if task.is_completed == False %}
                                 <td class="task-data">{{ task.name }}</td>
                                 <td class="task-data">{{ task.start_date }}</td>
                                 <td class="task-data">{{ task.due_date }}</td>

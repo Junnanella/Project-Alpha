@@ -18,8 +18,7 @@
                     <tbody>
                         {% for task in project.tasks.all %}
                             <tr>
-                                {% if task.is_completed %}
-                                {% else %}
+                                {% if task.is_completed == False %}
                                 <td>{{ task.name }}</td>
                                 <td>{{ task.assignee }}</td>
                                 <td>{{ task.start_date }}</td>
