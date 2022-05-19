@@ -187,6 +187,12 @@ ul.home-task{
     gap: 1em;
 }
 
+ul.home-overdue-task{
+    display: grid;
+    grid-template-columns: auto 2fr 1fr;
+    gap: 1em;
+}
+
 div.home-overdue-tasks {
     box-shadow: -5px -20px #C9CCD5;
     margin: auto 10em auto;

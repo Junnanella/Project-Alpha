@@ -40,12 +40,17 @@
     </div>
     <div class="home-title home-overdue-tasks">
       <h1>Overdue Tasks</h1>
+      <ul class="home-overdue-task">
+        <li></li>
+        <li><strong><u>Task Name</u></strong></li>
+        <li><strong><u>Due Date</u></strong></li>
+      </ul>
       {% for task in user_tasks %} 
       {% if task.is_completed%}
       {% else %}
       {% if task.due_date < current_date%}
-      <ul class="home-task">
-          <li class="home-task">
+      <ul class="home-overdue-task">
+          <li class="home-overdue-task">
             <form class="completed_task" method="post" action="{% url "complete_task" task.id%}">
               {% csrf_token %}
               <input type="hidden" name="is_completed" value="True">
@@ -53,6 +58,7 @@
             </form>
           </li>
           <li>{{ task.name }}</li>
+          <li>{{ task.due_date }}</li>
       </ul>
       {% endif %} 
       {% endif %}
