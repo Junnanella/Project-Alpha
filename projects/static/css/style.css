@@ -27,14 +27,14 @@ div.list-page{
     margin-top: 6em;
 }
 
-h1.list-page-header{
+h1.list-page-header {
     text-align: center;
 }
 
 th {
     text-align: left;
     padding-right: 2rem;
-    border-bottom: solid;
+    border-bottom: 2px solid #DEDEDE;
 }
 
 td {
@@ -53,16 +53,16 @@ nav {
 
 table {
     width: 100%;
-    background-color: white;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    padding: 2em;
+    box-shadow: -5px -10px #C9CCD5;
+    padding: 20px;
+    border-radius: 10px; 
+    background-color: white
 }
 
 form.create_new {
     background-color: white;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: -5px -10px #C9CCD5;
     margin: auto;
     max-width: 600px;
     padding: 2em;
@@ -133,11 +133,22 @@ div.home-title{
     text-align: center;
     background-color: #C9CCD5;
     border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 div.home-box{
     box-shadow: -5px -10px #C9CCD5;
     padding-left: 20px;
     border-radius: 25px; 
+    background-color: white
+}
+
+/* pages */
+div.project-task-list {
+    padding-left: 2em;
+}
+
+p {
+    margin-top: 2em;
 }
 

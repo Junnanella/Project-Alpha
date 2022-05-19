@@ -1,13 +1,13 @@
 {% extends "base.html" %} {% load markdownify %} {% block main_content %}
     <main>
-        <div>
-            <h1>{{ project.name }}</h1>
-            <p>{{ project.description|markdownify }}</p>
-            <h2>Tasks</h2>
-            <p>
-                <a href="{% url "create_task" %}">Create a new task</a>
-            </p>
-            {% if project.tasks.all|length > 0 %}
+        <div class="list-page">
+            <div class="project-task-list">
+                <h1 class="list-page-header">{{ project.name }}</h1>
+                <p>{{ project.description|markdownify }}</p>
+                <h2>Tasks</h2>
+            </div>
+            <div>
+                {% if project.tasks.all|length > 0 %}
                 <table>
                     <thead>
                         <th>Name</th>
@@ -29,11 +29,16 @@
                                     <td>no</td>
                                 {% endif %}
                             </tr>
-                        {% endfor %} {% else %}
-                <p>This project has no tasks</p>
+                        {% endfor %} 
+                    </tbody>
+                </table>
+            {% else %}
+            <p>This project has no tasks</p>
             {% endif %}
-        </tbody>
-    </table>
-    </div>
+            </div>
+        </div>
+        <div class="list-page-link">
+            <a  class="project-page-link" href="{% url "create_task" %}">Create a new task</a>
+        </div>
     </main>
 {% endblock main_content %}
